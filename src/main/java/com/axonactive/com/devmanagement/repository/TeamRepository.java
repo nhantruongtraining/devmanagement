@@ -13,6 +13,6 @@ public interface TeamRepository extends JpaRepository<Team, Integer> {
     @Query("SELECT DISTINCT t FROM Team t LEFT JOIN FETCH t.developers")
     List<Team> getAllJpql();
 
-    @Query("SELECT t FROM Team t LEFT JOIN FETCH t.developers")
+    @Query("SELECT t FROM Team t LEFT JOIN FETCH t.developers WHERE t.id = ?1")
     Team findTeamByTeamId(Integer id);
 }
