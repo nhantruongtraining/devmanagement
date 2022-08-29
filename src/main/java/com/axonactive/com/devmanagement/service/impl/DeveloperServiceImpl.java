@@ -32,10 +32,10 @@ public class DeveloperServiceImpl implements DeveloperService {
         return developerMapper.toDto(developerRepository.findById(id).orElseThrow(ResourceNotFoundException::DeveloperNotFound));
     }
 
-//    @Override
-//    public DeveloperDto findDeveloperById(Integer id) {
-//        return developerMapper.toDto(developerRepository.findById(id).orElseThrow(ResourceNotFoundException::DeveloperNotFound));
-//    }
+    @Override
+    public DeveloperDto findDeveloperById(Integer id) {
+        return developerMapper.toDto(developerRepository.findById(id).orElseThrow(ResourceNotFoundException::DeveloperNotFound));
+    }
 
     @Override
     public DeveloperDto save(DeveloperRequest developerRequest) {

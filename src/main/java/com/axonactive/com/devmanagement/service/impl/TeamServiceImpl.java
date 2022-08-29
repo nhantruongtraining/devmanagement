@@ -1,6 +1,7 @@
 package com.axonactive.com.devmanagement.service.impl;
 
 import com.axonactive.com.devmanagement.api.request.TeamRequest;
+import com.axonactive.com.devmanagement.exception.ResourceNotFoundException;
 import com.axonactive.com.devmanagement.repository.TeamRepository;
 import com.axonactive.com.devmanagement.service.TeamService;
 import com.axonactive.com.devmanagement.service.dto.TeamDto;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TeamServiceImpl implements TeamService {
@@ -25,6 +27,14 @@ public class TeamServiceImpl implements TeamService {
     }
 
     @Override
+    public TeamDto findById(Integer id) {
+        return teamMapper.toDto(teamRepository.findById(id).orElseThrow(ResourceNotFoundException::TeamNotFound));
+    }
+    @Override
+    public TeamDto findTeamByTeamId(Integer id) {
+        return null;
+    }
+    @Override
     public TeamDto save(TeamRequest teamRequest) {
         return null;
     }
@@ -34,10 +44,7 @@ public class TeamServiceImpl implements TeamService {
 
     }
 
-    @Override
-    public TeamDto findTeamByTeamId(Integer id) {
-        return null;
-    }
+
 
 
 }

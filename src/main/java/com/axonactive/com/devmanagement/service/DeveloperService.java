@@ -8,7 +8,7 @@ import java.util.List;
 public interface DeveloperService {
     List<DeveloperDto> getAll();
     DeveloperDto findById(Integer id);
-//    DeveloperDto findDeveloperById(Integer id);
+    DeveloperDto findDeveloperById(Integer id);
     DeveloperDto save(DeveloperRequest developerRequest);
     void delete(Integer id);
 
