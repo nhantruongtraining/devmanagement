@@ -32,7 +32,7 @@ public class TeamServiceImpl implements TeamService {
     }
     @Override
     public TeamDto findTeamByTeamId(Integer id) {
-        return null;
+        return teamMapper.toDto(teamRepository.findTeamByTeamId(id));
     }
     @Override
     public TeamDto save(TeamRequest teamRequest) {
@@ -41,10 +41,13 @@ public class TeamServiceImpl implements TeamService {
 
     @Override
     public void delete(Integer id) {
-
+        teamRepository.deleteById(id);
     }
 
-
+    @Override
+    public List<TeamDto> findAll() {
+        return teamMapper.toDtos(teamRepository.getAllJpql());
+    }
 
 
 }

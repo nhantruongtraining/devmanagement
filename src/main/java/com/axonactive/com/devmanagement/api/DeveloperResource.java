@@ -12,7 +12,6 @@ import java.util.List;
 @RestController
 @CrossOrigin(maxAge = 3600)
 @RequestMapping(DeveloperResource.PATH)
-@Slf4j
 public class DeveloperResource {
     public static final String PATH = "/api/developers";
 

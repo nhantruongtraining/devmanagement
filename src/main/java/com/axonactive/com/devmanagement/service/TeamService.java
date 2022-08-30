@@ -11,5 +11,6 @@ public interface TeamService {
     TeamDto findById(Integer id);
     TeamDto save(TeamRequest teamRequest);
     void delete(Integer id);
+    List<TeamDto> findAll();
     TeamDto findTeamByTeamId(Integer id);
 }
